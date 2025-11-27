@@ -89,25 +89,27 @@ Backend Flask para o sistema de acompanhamento fitness SonicFit, com autenticaç
 📁 Estrutura do Projeto
 text
 
+```
 sonicfit-backend/
 ├── app/
-│ ├── **init**.py # Inicialização do app Flask
-│ ├── models.py # Modelos de banco de dados
-│ ├── routes/
-│ │ ├── **init**.py
-│ │ ├── auth.py # Rotas de autenticação
-│ │ ├── user.py # Rotas de usuário
-│ │ ├── rotina.py # Rotas de rotina alimentar
-│ │ ├── metas.py # Rotas de metas
-│ │ └── atividades.py # Rotas de atividades
-│ ├── utils.py # Funções utilitárias
-│ └── config.py # Configurações
-├── migrations/ # Migrações do banco
+│   ├── __init__.py              # Inicialização do app Flask
+│   ├── models.py                # Modelos de banco de dados
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── auth.py              # Rotas de autenticação
+│   │   ├── user.py              # Rotas de usuário
+│   │   ├── rotina.py            # Rotas de rotina alimentar
+│   │   ├── metas.py             # Rotas de metas
+│   │   └── atividades.py        # Rotas de atividades
+│   ├── utils.py                 # Funções utilitárias
+│   └── config.py                # Configurações
+├── migrations/                  # Migrações do banco
 ├── instance/
-│ └── config.py # Configurações de instância
-├── requirements.txt # Dependências
-├── run.py # Arquivo de execução
-└── .env.example # Exemplo de variáveis de ambiente
+│   └── config.py                # Configurações de instância
+├── requirements.txt             # Dependências
+├── run.py                       # Arquivo de execução
+└── .env.example                 # Exemplo de variáveis de ambiente
+```
 
 ⚙️ Instalação e Configuração
 
