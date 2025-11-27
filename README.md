@@ -89,50 +89,54 @@ Backend Flask para o sistema de acompanhamento fitness SonicFit, com autenticaç
 📁 Estrutura do Projeto
 text
 
-#sonicfit-backend/
-#├── app/
-#│   ├── __init__.py              # Inicialização do app Flask
-#│   ├── models.py               # Modelos de banco de dados
-#│   ├── routes/
-#│   │   ├── __init__.py
-#│   │   ├── auth.py            # Rotas de autenticação
-#│   │   ├── user.py            # Rotas de usuário
-#│   │   ├── rotina.py          # Rotas de rotina alimentar
-#│   │   ├── metas.py           # Rotas de metas
-#│   │   └── atividades.py      # Rotas de atividades
-#│   ├── utils.py               # Funções utilitárias
-#│   └── config.py              # Configurações
-#├── migrations/                 # Migrações do banco
-#├── instance/
-#│   └── config.py              # Configurações de instância
-#├── requirements.txt           # Dependências
-#├── run.py                    # Arquivo de execução
-#└── .env.example              # Exemplo de variáveis de ambiente
+sonicfit-backend/
+├── app/
+│ ├── **init**.py # Inicialização do app Flask
+│ ├── models.py # Modelos de banco de dados
+│ ├── routes/
+│ │ ├── **init**.py
+│ │ ├── auth.py # Rotas de autenticação
+│ │ ├── user.py # Rotas de usuário
+│ │ ├── rotina.py # Rotas de rotina alimentar
+│ │ ├── metas.py # Rotas de metas
+│ │ └── atividades.py # Rotas de atividades
+│ ├── utils.py # Funções utilitárias
+│ └── config.py # Configurações
+├── migrations/ # Migrações do banco
+├── instance/
+│ └── config.py # Configurações de instância
+├── requirements.txt # Dependências
+├── run.py # Arquivo de execução
+└── .env.example # Exemplo de variáveis de ambiente
 
 ⚙️ Instalação e Configuração
+
 1. Clone o repositório
-bash
+   bash
 
 git clone <seu-repositorio>
 cd sonicfit-backend
 
 2. Crie um ambiente virtual
-bash
+   bash
 
 python -m venv venv
-source venv/bin/activate  # Linux/Mac
+source venv/bin/activate # Linux/Mac
+
 # ou
-venv\Scripts\activate     # Windows
+
+venv\Scripts\activate # Windows
 
 3. Instale as dependências
-bash
+   bash
 
 pip install -r requirements.txt
 
 4. Configure as variáveis de ambiente
-bash
+   bash
 
 cp .env.example .env
+
 # Edite o .env com suas configurações
 
 🔧 Variáveis de Ambiente
@@ -144,45 +148,49 @@ SECRET_KEY=sua_chave_super_secreta_aqui
 JWT_SECRET_KEY=sua_chave_jwt_super_secreta
 
 # Banco de dados
+
 DATABASE_URL=sqlite:///sonicfit.db
+
 # ou para PostgreSQL:
+
 # DATABASE_URL=postgresql://usuario:senha@localhost/sonicfit
 
 # Configurações JWT
-JWT_ACCESS_TOKEN_EXPIRES=3600  # 1 hora
-JWT_REFRESH_TOKEN_EXPIRES=604800  # 7 dias
+
+JWT_ACCESS_TOKEN_EXPIRES=3600 # 1 hora
+JWT_REFRESH_TOKEN_EXPIRES=604800 # 7 dias
 
 - 🚀 Rotas da API
 
 -🔐 Autenticação
-Método	Rota	Descrição
-POST	/api/auth/cadastro	Registro de novo usuário
-POST	/api/auth/login	Login do usuário
-POST	/api/auth/refresh	Refresh token
+Método Rota Descrição
+POST /api/auth/cadastro Registro de novo usuário
+POST /api/auth/login Login do usuário
+POST /api/auth/refresh Refresh token
 
 -👤 Usuário
-Método	Rota	Descrição
-GET	/api/user/me	Dados do usuário logado
-PUT	/api/user/update	Atualizar perfil
+Método Rota Descrição
+GET /api/user/me Dados do usuário logado
+PUT /api/user/update Atualizar perfil
 
 -🍽️ Rotina Alimentar
-Método	Rota	Descrição
-GET	/api/rotina/hoje	Rotina do dia atual
-POST	/api/rotina/marcar	Marcar/atualizar refeição
-GET	/api/rotina/calorias-totais	Calorias consumidas no dia
+Método Rota Descrição
+GET /api/rotina/hoje Rotina do dia atual
+POST /api/rotina/marcar Marcar/atualizar refeição
+GET /api/rotina/calorias-totais Calorias consumidas no dia
 
 -🎯 Metas
-Método	Rota	Descrição
-GET	/api/metas	Listar metas do usuário
-GET	/api/metas/ultima	Última meta definida
-POST	/api/metas/criar	Criar nova meta
-GET	/api/metas/historico	Histórico de peso
+Método Rota Descrição
+GET /api/metas Listar metas do usuário
+GET /api/metas/ultima Última meta definida
+POST /api/metas/criar Criar nova meta
+GET /api/metas/historico Histórico de peso
 
 -💪 Atividades
-Método	Rota	Descrição
-GET	/api/atividades/hoje	Atividades do dia
-POST	/api/atividades/registrar	Registrar atividade
-GET	/api/atividades/historico	Histórico de atividades
+Método Rota Descrição
+GET /api/atividades/hoje Atividades do dia
+POST /api/atividades/registrar Registrar atividade
+GET /api/atividades/historico Histórico de atividades
 🗄 Modelos de Dados
 User
 python
@@ -233,9 +241,9 @@ flask run
 Migrações do Banco:
 bash
 
-flask db init           # Primeira vez
-flask db migrate        # Criar migração
-flask db upgrade        # Aplicar migração
+flask db init # Primeira vez
+flask db migrate # Criar migração
+flask db upgrade # Aplicar migração
 
 📊 Exemplos de Uso
 Marcar Refeição:
@@ -243,9 +251,9 @@ javascript
 
 // POST /api/rotina/marcar
 {
-  "periodo": "Almoço",
-  "proteina_selecionada": "Frango grelhado 150g",
-  "concluido": true
+"periodo": "Almoço",
+"proteina_selecionada": "Frango grelhado 150g",
+"concluido": true
 }
 
 Criar Meta:
@@ -253,8 +261,8 @@ javascript
 
 // POST /api/metas/criar
 {
-  "peso_atual": 85.5,
-  "peso_meta": 75.0
+"peso_atual": 85.5,
+"peso_meta": 75.0
 }
 
 🐛 Troubleshooting
